@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conspirando - Teorias Não Convencionais</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f5f5f5;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 30px 0;
+      margin-bottom: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      color: #00ffe0;
+      font-size: 2.8rem;
+      text-shadow: 0 0 10px rgba(0, 255, 224, 0.5);
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #login-area {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+    #login-area h2 {
+      text-align: center;
+      color: #00ffe0;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+    }
+    input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    button {
+      background: #00ffe0;
+      color: #0f2027;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #00bfa5;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    #post-creator {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      display: none;
+    }
+    #post-creator h2 {
+      text-align: center;
+      color: #00ffe0;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 15px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      resize: vertical;
+      margin-bottom: 15px;
+    }
+    #posts {
+      margin-bottom: 40px;
+    }
+    .post {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .post h3 {
+      color: #00ffe0;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    .post-content {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    .feedback {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .feedback button {
+      width: auto;
+      flex: 1;
+      min-width: 120px;
+    }
+    .feedback input {
+      flex: 3;
+      min-width: 200px;
+    }
+    .comments {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .comment {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      margin-top: 30px;
+    }
+    .error {
+      color: #ff5555;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .success {
+      color: #00ffaa;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .login-message {
+      text-align: center;
+      margin-top: 15px;
+      color: #00ffe0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Conspirando</h1>
+      <p>Teorias Não Convencionais</p>
+    </header>
+    
+    <!-- Área de Login -->
+    <section id="login-area">
+      <h2>Acesso Restrito ao Criador</h2>
+      <div class="form-group">
+        <input type="email" id="owner-email" placeholder="Seu e-mail" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="owner-password" placeholder="Sua senha" required>
+      </div>
+      <button onclick="loginOwner()">Entrar</button>
+      <p id="login-message" class="login-message">Apenas o criador pode postar novas teorias</p>
+      <div id="login-error" class="error"></div>
+    </section>
+    
+    <!-- Editor de Posts (visível apenas para o dono) -->
+    <section id="post-creator">
+      <h2>Criar Nova Teoria</h2>
+      <div class="form-group">
+        <input type="text" id="new-post-title" placeholder="Título da teoria" required>
+      </div>
+      <div class="form-group">
+        <textarea id="new-post-content" placeholder="Descreva sua teoria não convencional..." required></textarea>
+      </div>
+      <button onclick="createPost()">Publicar Teoria</button>
+      <div id="post-message" class="success"></div>
+    </section>
+    
+    <!-- Lista de Posts -->
+    <section id="posts">
+      <h2>Teorias Recentes</h2>
+      <div id="posts-container"></div>
+    </section>
+    
+    <footer>
+      <p>Criado por Pedro Fernando – © 2025 Conspirando</p>
+    </footer>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  
+  <!-- Nosso App JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
